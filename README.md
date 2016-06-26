@@ -1,7 +1,6 @@
 ### OpenFB Cordova InAppBrowser Facebook Plugin
 
-This plugin has no dependency: You don 't need (and shouldn'
-t use) the Facebook SDK with this library.
+This plugin has no dependency: You don't need (and shouldn't use) the Facebook SDK with this library.
 
 OpenFB allows you to login to Facebook and execute any Facebook Graph API request.
 
