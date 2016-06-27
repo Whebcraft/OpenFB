@@ -28,8 +28,6 @@ cordova plugin add https://github.com/whebcraft/openfb
 
 ### Getting Started
 
-To Test Facebook login sample on your own system:
-
 [fb_apps]: https://developers.facebook.com/apps
 
 - Create html file `oauthcallback.html` in your app `www` folder.
@@ -44,15 +42,15 @@ To Test Facebook login sample on your own system:
 </html>
 ```
 
-- Create a Facebook app [here][fb_apps], in the app sidebar under > PRODUCTS click on FACEBOOK LOGIN.
+- Create a Facebook app [here][fb_apps], in the app sidebar under > `PRODUCTS` click on `FACEBOOK LOGIN`.
 <img width = "100%" align = "left" hspace = "19" vspace = "12" src = "images/fblogin.png" />
 
-- on FACEBOOK LOGIN page scroll down enter https: //www.facebook.com/connect/login_success.html  and  http://localhost:8888/cordova-open-fb/www/oauthcallback.html as Valid OAuth redirect URIs - [Required]
+- on FACEBOOK LOGIN page scroll down enter `https://www.facebook.com/connect/login_success.html` and `http://localhost:8888/cordova-open-fb/www/oauthcallback.html` as Valid OAuth redirect URIs - [Required]
 
 <img width = "100%" align = "left" hspace = "39" vspace = "12" src = "images/ValidOAuth.png" />
 
+To Test Facebook login sample on your own system for example:
 
-For example,
 if during development you access your application from `http://localhost/YOUR-APP/www/index.html` (If testing from localhost) you must declare `http://localhost/YOUR-APP/www/index.html` as a valid redirect URI.
 
 ### Quick Example 
@@ -115,7 +113,7 @@ console.log(f.name) // Mark Openfb
 	<img src="" id="myphoto" />
 ```
 
-    See https://avatars.io For Image sizes.
+See https://avatars.io for image sizes.
     
     
 License
