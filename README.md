@@ -108,7 +108,7 @@ console.log(f.name) // Mark Openfb
 Facebook access token is saved to localstorage.
 
 ```js
-    localStorage.getItem('fbAccessToken'); // returns token
+    localStorage.getItem('fbAccessToken'); // returns user token
 ```
 
 ### Get Current User Photo
