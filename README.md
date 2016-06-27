@@ -32,6 +32,18 @@ To Test Facebook login sample on your own system:
 
 [fb_apps]: https://developers.facebook.com/apps
 
+- Create html file `oauthcallback.html` in your app `www` folder.
+```
+<html>
+<body>
+<script>
+    window.opener.openFB.oauthCallback(window.location.href);
+    window.close();
+</script>
+</body>
+</html>
+```
+
 - Create a Facebook app [here][fb_apps], in the app sidebar under > PRODUCTS click on FACEBOOK LOGIN.
 <img width = "100%" align = "left" hspace = "19" vspace = "12" src = "images/fblogin.png" />
 
