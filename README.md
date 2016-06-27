@@ -1,8 +1,8 @@
-### OpenFB Cordova InAppBrowser Facebook Plugin
+### OpenFB Cordova Facebook Plugin
 
 This plugin has no dependency: You don't need (and shouldn't use) the Facebook SDK with this library.
 
-OpenFB allows you to login to Facebook and execute any Facebook Graph API request.
+OpenFB allows you login to Facebook with the Cordova InAppBrowser and execute any Facebook Graph API request.
 
 ### Supported Platforms
 
@@ -45,13 +45,16 @@ cordova plugin add https://github.com/whebcraft/openfb
 - Create a Facebook app [here][fb_apps], in the app sidebar under > `PRODUCTS` click on `FACEBOOK LOGIN`.
 <img width = "100%" align = "left" hspace = "19" vspace = "12" src = "images/fblogin.png" />
 
+
 - on FACEBOOK LOGIN page scroll down enter `https://www.facebook.com/connect/login_success.html` and `http://localhost:8888/cordova-open-fb/www/oauthcallback.html` as Valid OAuth redirect URIs - [Required]
 
 <img width = "100%" align = "left" hspace = "39" vspace = "12" src = "images/ValidOAuth.png" />
 
+
 To Test Facebook login sample on your own system for example:
 
-if during development you access your application from `http://localhost/YOUR-APP/www/index.html` (If testing from localhost) you must declare `http://localhost/YOUR-APP/www/index.html` as a valid redirect URI.
+if during development you access your application from `http://localhost/YOUR-APP/www/index.html` (If testing from localhost) you must also declare `http://localhost/YOUR-APP/www/index.html` as a valid redirect URI.
+
 
 ### Quick Example 
 ```js
@@ -64,61 +67,65 @@ openFB.init({appId: 'YOUR_FACEBOOK_APP_ID'});
 openFB.login(
    function(res) {
         if (res.status === 'connected') {
-		// Login Successfull...
+	// Login Successfull...
          getUsersData();
         } else {
-	     // Cancelled by the user.
+	// Login cancelled by the user.
             alert('Login With Facebook Cancelled');
         }
     }, {
-        scope: 'email'
+        scope: 'email' // for more permissions see https://developers.facebook.com/docs/facebook-login/permissions
 });
+
 
 // Get user data after user is logged in
 function getUsersData(){
 openFB.api({
     path: '/me',
     success: function(f) {
-// f is an object
-{
-    id: "123456789", // Facebook User Id
-    birthday: "06/10/1394",
-    email: "useremail@gmail.com", // Facebook User Email
-    first_name: "Mark", // Firstname
-    gender: "male", // Gender
-    last_name: "Openfb", // Last name
-    link: "https://www.facebook.com/app_scoped_user_id/123456789/",
-    locale: "en_US",
-    name: "Mark Openfb",
-    timezone: 1,
-    updated_time: "2014-04-15T60:48:21+0000",
-    verified: true, // If user is verified
-    website: "openfb.com"
-}
-console.log(f.name) // Mark Openfb
+        // f is an object
+        {
+                id: "123456789", // Facebook User Id
+                birthday: "06/10/1394",
+                email: "useremail@gmail.com", // Facebook User Email
+                first_name: "Mark", // Firstname
+                gender: "male", // Gender
+                last_name: "Openfb", // Last name
+                link: "https://www.facebook.com/app_scoped_user_id/123456789/",
+                locale: "en_US",
+                name: "Mark Openfb",
+                timezone: 1,
+                updated_time: "2014-04-15T60:48:21+0000",
+                verified: true, // If user is verified
+                website: "openfb.com"
+        }
+       console.log(f.name) // Mark Openfb
    },
     error: function(e) {
-        alert(e.message);
+        console.log(e);
     }
 });
 }
 ```
 
-### Get User Facebook Token after logged in
+
+### Get user facebook token after logged in
 Facebook access token is saved to localstorage.
 
 ```js
     localStorage.getItem('fbAccessToken'); // returns user token
 ```
 
-### Get Current User Photo
+
+### Get current user photo
 
 ```js
     var pic = f.name;
     var picUrl = pic.replace(/\s+/g, '');
     $('#myphoto').attr('src', 'https://avatars.io/facebook/'+picUrl);
-	<img src="" id="myphoto" />
+    <img src="" id="myphoto" />
 ```
+
 
 See https://avatars.io for image sizes.
     
@@ -130,7 +137,7 @@ License
     you may not use this file except in compliance with the License.
     You may obtain a copy of the License at
 
-       http://www.apache.org/licenses/LICENSE-2.0
+    http://www.apache.org/licenses/LICENSE-2.0
 
     Unless required by applicable law or agreed to in writing, software
     distributed under the License is distributed on an "AS IS" BASIS,
