@@ -9,11 +9,8 @@
     <engine name="cordova" version=">=3.4.0"/>
   </engines>
 
-  <asset src="www/openfb.js" target="js/openfb.js"/>
-
-  <js-module src="www/openfb.js" name="openfb">
-    <clobbers target="openfb" />
-  </js-module>
+<js-module src="openfb.js" name="openfb">
+</js-module>
 
   <platform name="android">
     <config-file target="res/xml/config.xml" parent="/*">
