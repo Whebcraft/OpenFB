@@ -10,7 +10,7 @@
   </engines>
 
   <js-module src="www/openfb.js" name="openfb">
-    <clobbers target="window.plugins.openfb" />
+    <clobbers target="openfb" />
 </js-module>
 
   <platform name="android">
