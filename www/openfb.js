@@ -1,5 +1,5 @@
 module.exports = {
-  openFB: function () {
+  fb: function () {
     var loginURL = 'https://www.facebook.com/dialog/oauth',
         logoutURL = 'https://www.facebook.com/logout.php',
         tokenStore = window.sessionStorage,
