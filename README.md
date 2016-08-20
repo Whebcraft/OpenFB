@@ -35,7 +35,7 @@ cordova plugin add https://github.com/whebcraft/openfb
 <html>
 <body>
 <script>
-    window.opener.openFB.oauthCallback(window.location.href);
+    window.opener.openfb.oauthCallback(window.location.href);
     window.close();
 </script>
 </body>
@@ -60,18 +60,20 @@ if during development you access your application from `http://localhost/YOUR-AP
 ```js
 
 // Int
-openFB.init({appId: 'YOUR_FACEBOOK_APP_ID'});
+var fbAppId, loginCallback, runningInCordova;
+
+openfb.init({appId: 'YOUR_FACEBOOK_APP_ID'});
 
 
 // Facebook Login
-openFB.login(
+openfb.login(
    function(res) {
         if (res.status === 'connected') {
-	// Login Successfull...
+	   // Login Successfull...
          getUsersData();
         } else {
-	// Login cancelled by the user.
-            alert('Login With Facebook Cancelled');
+	  // Login cancelled by the user.
+         alert('Login With Facebook Cancelled');
         }
     }, {
         scope: 'email' // for more permissions see https://developers.facebook.com/docs/facebook-login/permissions
@@ -80,7 +82,7 @@ openFB.login(
 
 // Get user data after user is logged in
 function getUsersData(){
-openFB.api({
+openfb.api({
     path: '/me',
     success: function(f) {
         // f is an object
@@ -90,16 +92,16 @@ openFB.api({
                 email: "useremail@gmail.com", // Facebook User Email
                 first_name: "Mark", // Firstname
                 gender: "male", // Gender
-                last_name: "Openfb", // Last name
+                last_name: "openfb", // Last name
                 link: "https://www.facebook.com/app_scoped_user_id/123456789/",
                 locale: "en_US",
-                name: "Mark Openfb",
+                name: "Mark openfb",
                 timezone: 1,
                 updated_time: "2014-04-15T60:48:21+0000",
                 verified: true, // If user is verified
                 website: "openfb.com"
         }
-       console.log(f.name) // Mark Openfb
+       console.log(f.name) // Mark openfb
    },
     error: function(e) {
         console.log(e);
@@ -120,9 +122,8 @@ Facebook access token is saved to localstorage.
 ### Get current user photo
 
 ```js
-    var pic = f.name;
-    var picUrl = pic.replace(/\s+/g, '');
-    $('#myphoto').attr('src', 'https://avatars.io/facebook/'+picUrl);
+    var id = f.id;
+    $('#myphoto').attr('src', 'https://avatars.io/facebook/'+id);
     <img src="" id="myphoto" />
 ```
 
