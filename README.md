@@ -60,7 +60,8 @@ if during development you access your application from `http://localhost/YOUR-AP
 ```js
 
 // Int
-var fbAppId, loginCallback, runningInCordova;
+
+var fbAppId, loginCallback, runningInCordova = true; // add this to your deviceready function..
 
 openfb.init({appId: 'YOUR_FACEBOOK_APP_ID'});
 
