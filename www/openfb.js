@@ -1,4 +1,3 @@
-var fbAppId, loginCallback, runningInCordova;
 module.exports = {
     init: function (params) {
 
