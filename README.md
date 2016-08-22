@@ -124,8 +124,10 @@ Facebook access token is saved to localstorage.
 
 ```js
     var id = f.id;
-    $('#myphoto').attr('src', 'https://avatars.io/facebook/'+id);
-    <img src="" id="myphoto" />
+
+    document.getElementById("myphoto").innerHTML = '<img src="https://avatars.io/facebook/'+id+'"/>';
+    
+    <div id="myphoto"></div>
 ```
 
 
