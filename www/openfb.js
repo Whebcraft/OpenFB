@@ -123,7 +123,7 @@ module.exports = {
 
         params['access_token'] = tokenStore.fbAccessToken;
 
-        url = 'https://graph.facebook.com/v2.7' + obj.path + '?' + openfb.toQueryString(params) +'&fields=id,birthday,email,first_name,gender,last_name,link,locale,name,timezone,updated_time,verified,website&format=json';
+        url = 'https://graph.facebook.com/v13.0' + obj.path + '?' + openfb.toQueryString(params) +'&fields=id,email,name&format=json';
 
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4) {
@@ -149,7 +149,7 @@ module.exports = {
 
         params['access_token'] = tokenStore.fbAccessToken;
 
-        url = 'https://graph.facebook.com/v2.7' + obj.path + '?' + openfb.toQueryString(params) +'&fields=id,birthday,email,first_name,gender,last_name,link,locale,name,timezone,updated_time,verified,website&format=json';
+        url = 'https://graph.facebook.com/v13.0' + obj.path + '?' + openfb.toQueryString(params) +'&fields=id,email,name&format=json';
 
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4) {
